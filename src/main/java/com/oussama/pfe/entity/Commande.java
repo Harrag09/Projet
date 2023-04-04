@@ -14,7 +14,7 @@ import java.util.Date;
 public class Commande {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_cmd")
     private Long id;
     @Column(name = "date_cmd")

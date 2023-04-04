@@ -11,10 +11,10 @@ import javax.persistence.*;
 @Table(name = "Categories")
 public class Categories {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_c")
     private Long id_C;
-    @Column(name = "img", length = 1000)
+    @Column(name = "img", length = 1000000)
     private byte[] img ;
 
     public Categories() {

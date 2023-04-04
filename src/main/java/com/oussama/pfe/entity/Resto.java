@@ -11,7 +11,7 @@ import javax.persistence.*;
 @Table(name = "Resto")
 public class Resto {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_R;
     @Column(name = "Nom_r")
     private String nom;
@@ -21,7 +21,7 @@ public class Resto {
     private String email;
     @Column(name = "Password_r")
     private String Password;
-    @Column(name = "Logo_R", length = 1000)
+    @Column(name = "Logo_R", length = 1000000)
     private byte[] logo ;
 
 
