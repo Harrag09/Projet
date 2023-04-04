@@ -1,0 +1,23 @@
+- Create a class named SignUpRequest that will be used to register a new user. This class will have the following fields:
+    - email
+    - password
+    - firstName
+    - lastName
+    - address
+
+- Create a class named SignInRequest that will be used to login a user. This class will have the following fields:
+    - email
+    - password
+
+- Create a controller named AuthController that will have the following endpoints:
+    - POST /auth/signup: this endpoint will be used to register a new user. It will receive a SignUpRequest as a request body
+        It should create a new use in the database.
+        It returns 200 status code if the user was created successfully.
+        No response body is required.
+    - POST /auth/login: this endpoint will be used to login a user. It will receive an email and a password as a request body
+        It should return the user's information.
+
+- Think about users types/roles. How can you implement them?
+
+
+take a look at https://fr.wikipedia.org/wiki/Liste_des_codes_HTTP
