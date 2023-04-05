@@ -8,6 +8,7 @@ import javax.validation.constraints.NotBlank;
 @Setter
 @Getter
 public class SignUpRequest {
+
     @Size(max = 20, message = "Email name must be less than or equal to 20 characters")
     @NotBlank(message = "Email cannot be blank")
     @Email(message = "Invalid email format")
@@ -26,6 +27,7 @@ public class SignUpRequest {
     @NotBlank(message = "address cannot be blank")
     private String address;
 
+    //TODO: Don't add this constructor
     public SignUpRequest(String email, String password, String firstName, String lastName, String address) {
         this.email = email;
         this.password = password;
@@ -33,7 +35,4 @@ public class SignUpRequest {
         this.lastName = lastName;
         this.address = address;
     }
-
-
-
 }

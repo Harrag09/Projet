@@ -1,3 +1,4 @@
+04/05/2022:
 - Create a class named SignUpRequest that will be used to register a new user. This class will have the following fields:
     - email
     - password
@@ -18,6 +19,17 @@
         It should return the user's information.
 
 - Think about users types/roles. How can you implement them?
-
-
 take a look at https://fr.wikipedia.org/wiki/Liste_des_codes_HTTP
+
+05/04/2021:
+Learn the difference between @NotBlank and @NotEmpty and @NotNull -
+take a look at https://www.baeldung.com/java-bean-validation-not-null-empty-blank
+
+Take a look at mappers such as model mapper and it's alternatives
+Learn how to use mapstruct and how to use it with spring boot
+Create UserMapper and use it in the controller or service layer for example - mapToUserEntity from SingUpRequest
+take a look at this article https://www.baeldung.com/java-performance-mapping-frameworks
+
+Take a lok at password encryption and how to use it in spring boot and use it to encrypt the password before saving it in the database
+
+add enum for roles and use it as column in user table named role use annotations @Enumerated(EnumType.STRING) and @Column(name = "role", nullable = false)

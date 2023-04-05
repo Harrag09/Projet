@@ -17,7 +17,7 @@ public class DatabaseBootstrap implements CommandLineRunner {
 
     @Override
     public void run(String... args) {
-        log.info("Database bootstrap started");
+        log.error("Database bootstrap started");
         User user = new User();
         user.setFirstName("admin");
         user.setLastName("admin");
@@ -25,7 +25,7 @@ public class DatabaseBootstrap implements CommandLineRunner {
         user.setPassword("root");
         user.setAddress("Tunis");
         userRepository.save(user);
-        log.info("Admin user created");
+        log.warn("Admin user created");
         log.info("Database bootstrap finished");
     }
 }

@@ -16,23 +16,30 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-
+import javax.validation.Valid;
 
 
 @RestController
 @RequestMapping("/auth")
 public class AuthController {
-
-
+    //TODO: Do not use @Autowired on fields, use constructor injection instead do the same for all other services,
+    //TODO: take a look at the constructor injection in the DatabaseBootstrap class
     @Autowired
     private UserService userService;
 
+    /**
+     * Move business logic to the service layer
+     */
+
+    //TODO: Use @Valid annotation on the request body
     @PostMapping("/signup")
-    public ResponseEntity<?> registerUser(@RequestBody SignUpRequest signUpRequest) {
+    public ResponseEntity<String> registerUser(@Valid @RequestBody SignUpRequest signUpRequest) {
         if(userService.existsByEmail(signUpRequest.getEmail())) {
+            //TODO: use logger instead of System.out.println take a look at DatabaseBootstrap class
+            // use @Slf4j(topic = "") annotation on the class
             System.out.println("User with email already exists");
 
-           return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("User with this email already exists ");
+           return ResponseEntity.ok("User with email already exists");
         }
 
             User user = new User();
@@ -41,14 +48,16 @@ public class AuthController {
             user.setAddress(signUpRequest.getAddress());
             user.setFirstName(signUpRequest.getFirstName());
             user.setLastName(signUpRequest.getLastName());
-            userService.save(user);
+            userService.register(user);
 
             System.out.println("success Add");
-
-        return   ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("success Add");
+        //TODO: do not set status manually, use ResponseEntity.ok() instead
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("success Add");
     }
+    //Do not use wildcard in return type, use ResponseEntity<String> instead
+    //Move all the logic the the service layer
     @PostMapping("/login")
-    public ResponseEntity<?> authenticateUser(@RequestBody SignInRequest signInRequest) {
+    public ResponseEntity<String> authenticateUser(@RequestBody SignInRequest signInRequest) {
         // Retrieve user from database
         User user = userService.findByEmail(signInRequest.getEmail());
         if (user == null) {
