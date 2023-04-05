@@ -1,5 +1,6 @@
 package com.oussama.pfe.entity;
 
+import com.oussama.pfe.UserRole;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -19,7 +20,8 @@ public class User {
     private String email;
     private String password;
 
-
+    @Enumerated(EnumType.STRING)
+    private UserRole role;
 
     //TODO: don't add no args constructor
     public User() {

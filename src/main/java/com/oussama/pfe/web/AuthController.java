@@ -1,6 +1,7 @@
 package com.oussama.pfe.web;
 
 
+import com.oussama.pfe.UserRole;
 import com.oussama.pfe.entity.User;
 
 import com.oussama.pfe.models.SignInRequest;
@@ -48,6 +49,7 @@ public class AuthController {
             user.setAddress(signUpRequest.getAddress());
             user.setFirstName(signUpRequest.getFirstName());
             user.setLastName(signUpRequest.getLastName());
+            user.setRole(UserRole.USER);
             userService.register(user);
 
             System.out.println("success Add");
