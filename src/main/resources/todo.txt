@@ -41,3 +41,4 @@ Take a lok at password encryption and how to use it in spring boot and use it to
 
 add enum for roles and use it as column in user table named role use annotations @Enumerated(EnumType.STRING) and @Column(name = "role", nullable = false)
 az
+jwt authentication and authorization
