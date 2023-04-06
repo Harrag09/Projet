@@ -24,8 +24,7 @@ public class User {
     private UserRole role;
 
     //TODO: don't add no args constructor
-    public User() {
-    }
+        //Sbn
 
 
 }
